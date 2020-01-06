@@ -1,18 +1,28 @@
-function createGreeting(name, age){
-    return('Hi, my name is Chris and I ' m 29 years old' + 'I was born in [yearOfBirth]);
-    let yearOfBirth = (2020 - age);
+
+function getYearOfBirth(age) { 
+   return 2020 - age;
 }
 
-function getYearOfBirth(age) {
-    return (2020 - age);
-}
 function createGreeting(name, age) {
-    const yob = getYearOfBirth;
-    return('Hi, my name is Chris and I ' m 29 years old' + 'I was born in [yearOfBirth]);
+    if (name === undefined || age === undefined) {
+        throw new Error('Arguments not valid');
+    }
+    if (age < 0) {
+        throw new Error('Age can not be negative');
+    }
+    if (typeof age !== 'number') {
+        throw new TypeError('Age has to be a number');
+    }
+
+
+    const yob = getYearOfBirth(age);
+    return `Hi, my name is ${name} and I'm ${age} years old. I was born in ${yob}.`;
 }
 
-createGreeting();
-
-const greeting1 = createGreeting();
-console.log(greeting1)
-
+try {
+    const greeting1 = createGreeting('Chris', 29);
+    console.log(greeting1);
+}
+catch(e) {
+    console.error(e.message);
+}
