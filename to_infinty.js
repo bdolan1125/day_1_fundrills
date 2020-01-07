@@ -1,6 +1,6 @@
 function beyond(num){
-    if(num === Infinity){
-        console.log('And Beyond')
+    if(num === num){
+        console.log("And Beyond")
     }
     if(num >0){
         console.log("To Infinity")
@@ -12,3 +12,5 @@ function beyond(num){
         console.log("Staying Home")
     }
 }
+
+console.log(beyond())
